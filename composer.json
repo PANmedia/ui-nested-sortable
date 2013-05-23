@@ -1,0 +1,22 @@
+{
+    "name": "pan/ui-nested-sortable",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Manuele J Sarfatti"
+        },
+        {
+            "name": "David Neilsen",
+            "email": "david@panmedia.co.nz"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://vm3.hd1.panmedia.co.nz/satis/"
+        }
+    ],
+    "require": {
+        "pan/theme": "dev-master"
+    }
+}

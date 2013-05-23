@@ -17,7 +17,7 @@
 		return ( x > reference ) && ( x < ( reference + size ) );
 	}
 
-	$.widget("mjs.nestedSortable", $.extend({}, $.ui.sortable.prototype, {
+	$.widget("ui.nestedSortable", $.extend({}, $.ui.sortable.prototype, {
 
 		options: {
 			doNotClear: false,
@@ -32,17 +32,17 @@
 			startCollapsed: false,
 			tabSize: 20,
 
-			branchClass: 'mjs-nestedSortable-branch',
-			collapsedClass: 'mjs-nestedSortable-collapsed',
-			disableNestingClass: 'mjs-nestedSortable-no-nesting',
-			errorClass: 'mjs-nestedSortable-error',
-			expandedClass: 'mjs-nestedSortable-expanded',
-			hoveringClass: 'mjs-nestedSortable-hovering',
-			leafClass: 'mjs-nestedSortable-leaf'
+			branchClass: 'ui-nested-sortable-branch',
+			collapsedClass: 'ui-nested-sortable-collapsed',
+			disableNestingClass: 'ui-nested-sortable-no-nesting',
+			errorClass: 'ui-nested-sortable-error',
+			expandedClass: 'ui-nested-sortable-expanded',
+			hoveringClass: 'ui-nested-sortable-hovering',
+			leafClass: 'ui-nested-sortable-leaf'
 		},
 
 		_create: function() {
-			this.element.data('ui-sortable', this.element.data('mjs-nestedSortable'));
+			this.element.data('ui-sortable', this.element.data('ui-nested-sortable'));
 
 			// mjs - prevent browser from freezing if the HTML is not correct
 			if (!this.element.is(this.options.listType))
@@ -74,7 +74,7 @@
 
 		_destroy: function() {
 			this.element
-				.removeData("mjs-nestedSortable")
+				.removeData("ui-nested-sortable")
 				.removeData("ui-sortable");
 			return $.ui.sortable.prototype._destroy.apply(this, arguments);
 		},
@@ -606,5 +606,5 @@
 
 	}));
 
-	$.mjs.nestedSortable.prototype.options = $.extend({}, $.ui.sortable.prototype.options, $.mjs.nestedSortable.prototype.options);
+	$.ui.nestedSortable.prototype.options = $.extend({}, $.ui.sortable.prototype.options, $.ui.nestedSortable.prototype.options);
 })(jQuery);

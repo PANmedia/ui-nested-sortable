@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Nested Sortable Widget</title>
+        <link type="text/css" rel="stylesheet" href="../packages/nested-sortable.css" />
+        <link type="text/css" rel="stylesheet" href="lib/theme.css" />
+        <link type="text/css" rel="stylesheet" href="lib/theme-icons.css" />
+        <script type="text/javascript" src="lib/jquery.js"></script>
+        <script type="text/javascript" src="lib/jquery-ui.js"></script>
+        <script type="text/javascript" src="../src/nested-sortable.js"></script>
+    </head>
+    <body>
+        <h1>Nested Sortable Widget</h1>
+        <ol class="sortable">
+            <li id="list_1"><div><span class="disclose"><span></span></span>Item 1</div>
+                <ol>
+                    <li id="list_2"><div><span class="disclose"><span></span></span>Sub Item 1.1</div>
+                        <ol>
+                            <li id="list_3"><div><span class="disclose"><span></span></span>Sub Item 1.2</div></li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li id="list_4"><div><span class="disclose"><span></span></span>Item 2</div></li>
+            <li id="list_5"><div><span class="disclose"><span></span></span>Item 3</div>
+                <ol>
+                    <li id="list_6"><div><span class="disclose"><span></span></span>Sub Item 3.1 (no nesting)</div></li>
+                    <li id="list_7"><div><span class="disclose"><span></span></span>Sub Item 3.2</div>
+                        <ol>
+                            <li id="list_8"><div><span class="disclose"><span></span></span>Sub Item 3.2.1</div></li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li id="list_9"><div><span class="disclose"><span></span></span>Item 4</div></li>
+            <li id="list_10"><div><span class="disclose"><span></span></span>Item 5</div></li>
+        </ol>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('ol.sortable').nestedSortable({
+                    forcePlaceholderSize: true,
+                    handle: 'div',
+                    helper:	'clone',
+                    items: 'li',
+                    opacity: 0.6,
+                    placeholder: 'placeholder',
+                    tabSize: 25,
+                    tolerance: 'pointer',
+                    toleranceElement: '> div',
+                    maxLevels: 3,
+
+                    isTree: true,
+                    expandOnHover: 700,
+                    startCollapsed: true
+                });
+            });
+        </script>
+    </body>
+</html>
