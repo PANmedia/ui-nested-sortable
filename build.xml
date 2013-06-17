@@ -3,7 +3,6 @@
     <target name="build">
         <mkdir dir="${phing.dir.pan_ui_nested_sortable}/packages" />
         <phingcall target="css" />
-        <phingcall target="cssdev" />
         <phingcall target="js" />
         <phingcall target="jsdev" />
     </target>
@@ -18,15 +17,6 @@
     </target>
 
     <target name="css" description="Compile and compress all CSS files" depends="prepare">
-        <scss
-            scssFile="nested-sortable.scss"
-            cssFile="${phing.dir.pan_ui_nested_sortable}/packages/nested-sortable.min.css"
-            dir="${phing.dir.pan_ui_nested_sortable}/src"
-            compress="true"
-        />
-    </target>
-
-    <target name="cssdev" description="Compile all CSS files" depends="prepare">
         <scss
             scssFile="nested-sortable.scss"
             cssFile="${phing.dir.pan_ui_nested_sortable}/packages/nested-sortable.css"
